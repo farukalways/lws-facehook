@@ -7,7 +7,6 @@ const Logout = () => {
   const { setAuth } = useAuth();
   const handleLogout = () => {
     setAuth({});
-    console.log("hello worls");
     navigate("/login");
   };
 
