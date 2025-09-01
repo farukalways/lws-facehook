@@ -10,20 +10,20 @@ const Field = ({ label, children, htmlFor, error }) => {
         </label>
       )}
       {children}
-      {!!error && (
-        <div role="alert" className="text-red-600">
+      {error && (
+        <p role="alert" className="text-red-500">
           {error.message}
-        </div>
+        </p>
       )}
     </div>
   );
 };
 
 const getChildId = (children) => {
-  const child = React.Children.only(children);
+  const childId = React.Children.only(children);
 
-  if (child?.props && "id" in child.props) {
-    return child.props.id;
+  if ("id" in childId.props) {
+    return childId.props.id;
   }
 };
 

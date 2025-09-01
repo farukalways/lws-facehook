@@ -6,7 +6,7 @@ import RegistrationPage from "./page/RegistrationPage";
 import NotFoundPage from "./page/NotFoundPage";
 import PrivateRoutes from "./routes/PrivateRoutes";
 
-function App() {
+const App = () => {
   return (
     <>
       <Routes>
@@ -20,6 +20,6 @@ function App() {
       </Routes>
     </>
   );
-}
+};
 
 export default App;

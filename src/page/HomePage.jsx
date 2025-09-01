@@ -1,11 +1,8 @@
-import Header from "../components/common/Header";
-
 const HomePage = () => {
   return (
     <div>
-      <Header />
-
-      <p>HomePage</p>
+      <h2>eee</h2>
+      <h2>eee</h2>
     </div>
   );
 };

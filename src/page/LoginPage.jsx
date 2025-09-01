@@ -23,10 +23,9 @@ const LoginPage = () => {
               </p>
             </div>
           </div>
-
           <div className="card">
-            <LoginForm />
             <div className="py-4 lg:py-6">
+              <LoginForm />
               <p className="text-center text-xs text-gray-600/95 lg:text-sm">
                 Don’t have account?
                 <Link

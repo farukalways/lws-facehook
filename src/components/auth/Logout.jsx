@@ -5,6 +5,7 @@ import { useAuth } from "../../hooks/useAuth";
 const Logout = () => {
   const navigate = useNavigate();
   const { setAuth } = useAuth();
+
   const handleLogout = () => {
     setAuth({});
     navigate("/login");
