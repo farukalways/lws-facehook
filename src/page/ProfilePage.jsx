@@ -1,8 +1,11 @@
+import { useEffect } from "react";
+import { actions } from "../actions";
 import { useAuth } from "../hooks/useAuth";
 import useAxios from "../hooks/useAxios";
-import { useEffect } from "react";
 import { useProfile } from "../hooks/useProfile";
-import { actions } from "../actions";
+
+import MyPosts from "../components/profile/MyPosts";
+import ProfileInfo from "../components/profile/ProfileInfo";
 
 const ProfilePage = () => {
   const { state, dispatch } = useProfile();
@@ -17,7 +20,10 @@ const ProfilePage = () => {
           `${import.meta.env.VITE_SERVER_BASE_URL}/profile/${auth?.user?.id}`
         );
         if (response.status === 200) {
-          dispatch({ type: actions.profile.DATA_FETCHED, data: response.data });
+          dispatch({
+            type: actions.profile.DATA_FETCHED,
+            data: response.data,
+          });
         }
       } catch (error) {
         console.error(error);
@@ -29,17 +35,17 @@ const ProfilePage = () => {
     };
 
     fetchProfile();
-  }, [auth, api, dispatch]);
+  }, [dispatch, api]);
 
   if (state?.loading) {
     return <div> Fetching your Profile data...</div>;
   }
 
   return (
-    <div>
-      Welcome, {state?.user?.firstName} {state?.user?.lastName}
-      <p>You have {state?.posts.length} posts.</p>
-    </div>
+    <>
+      <ProfileInfo />
+      <MyPosts />
+    </>
   );
 };
 
