@@ -35,7 +35,9 @@ const useAxios = () => {
             );
 
             const { token } = response.data;
-            console.log(token);
+
+            console.log(`new Token${token}`);
+
             setAuth({ ...auth, authToken: token });
 
             originalRequest.headers.Authorization = `Bearer ${token}`;
@@ -55,7 +57,7 @@ const useAxios = () => {
     };
   }, [auth.authToken]);
 
-  return api;
+  return { api };
 };
 
 export default useAxios;
